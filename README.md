@@ -1,4 +1,4 @@
-# <img src="src/pages/icon-moogle.png" width="20"> final-fantasy-react-native
+# <img src="/pages/icon-moogle.png" width="20"> final-fantasy-react-native
 
 This is a copy of my React.js web app with React-Native.
 I'm fetching data from <a href="https://www.moogleapi.com" target="blank">MoogleApi</a>.
