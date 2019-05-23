@@ -33,8 +33,12 @@ export default class HomeScreen extends Component {
             render = <View style={{ alignContent: "center", alignItems: "center", marginTop: 50 }}>
                         <View>
                             <View>
-                                <Text style={{ alignContent: "center", alignItems: "center"}}>{this.state.character.name}</Text>
                                 <Image style={{ width: 180, height: 180 }} source={{ uri: picture }}></Image>
+                                <Text style={{ alignContent: "center", alignItems: "center"}}>Name: {this.state.character.name}</Text>
+                                <Text style={{ alignContent: "center", alignItems: "center"}}>Age: {this.state.character.age}</Text>
+                                <Text style={{ alignContent: "center", alignItems: "center"}}>Race: {this.state.character.race}</Text>
+                                <Text style={{ alignContent: "center", alignItems: "center"}}>Gender: {this.state.character.gender}</Text>
+                                <Text style={{ alignContent: "center", alignItems: "center"}}>Job: {this.state.character.job}</Text>
                             </View>
                         </View>
                     </View>;
@@ -42,7 +46,7 @@ export default class HomeScreen extends Component {
 
         return (
             <View style={{ alignContent: "center", alignItems: "center", marginTop: 50 }}>
-                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Welcome!</Text>
+                <Text style={{ fontSize: 28, fontWeight: "bold" }}>Welcome!</Text>
                 <Text style={{ alignContent: "flex-start", marginTop: 20 }}>This is my simple little React.js web application.</Text>
                 <Text>Shameless plug: I'm reaching out to https://www.moogleapi.com to pull in data from three different endpoints.</Text>
                 <View>

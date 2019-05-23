@@ -37,7 +37,7 @@ export default class MonsterScreen extends Component {
         }
         return (
             <View style={{ alignContent: "center", alignItems: "center", marginTop: 50 }}>
-                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Monsters</Text>
+                <Text style={{ fontSize: 28, fontWeight: "bold" }}>Monsters</Text>
                 <View style={{ marginTop: 20 }}>
                     {render}
                 </View>

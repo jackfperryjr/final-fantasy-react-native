@@ -37,7 +37,7 @@ export default class GameScreen extends Component {
         }
         return (
             <View style={{ alignContent: "center", alignItems: "center", marginTop: 50 }}>
-                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Games</Text>
+                <Text style={{ fontSize: 28, fontWeight: "bold" }}>Games</Text>
                 <View style={{ marginTop: 20 }}>
                     {render}
                 </View>

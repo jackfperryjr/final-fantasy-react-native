@@ -31,13 +31,13 @@ export default class CharacterScreen extends Component {
         } else {
           render =  <ScrollView>
                         {this.state.characters.map((item, key) =>
-                            <Text key={key}>{item.name}</Text>
+                            <Text key={key}>{item.name} {item.job}</Text>
                         )}
                     </ScrollView>
         }
         return (
             <View style={{ alignContent: "center", alignItems: "center", marginTop: 50 }}>
-                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Characters</Text>
+                <Text style={{ fontSize: 28, fontWeight: "bold" }}>Characters</Text>
                 <View style={{ marginTop: 20 }}>
                     {render}
                 </View>
