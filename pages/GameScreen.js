@@ -10,15 +10,17 @@ export default class GameScreen extends Component {
           isLoading: false
         }
       }
-      componentDidMount () {
-        this.setState({ isLoading: true })
-    
+      fetchData () {
         fetch('https://www.moogleapi.com/api/v1/games')
           .then(response => response.json())
           .then(games => {
             this.setState({ games: games, isLoading: false })
-          }
-          )
+          })
+      }
+      componentDidMount () {
+        this.setState({ isLoading: true })
+        this.fetchData();
+        this.props.navigation.setParams({ fetchData: this.fetchData })
       }
       render () {
         const isLoading = this.state.isLoading

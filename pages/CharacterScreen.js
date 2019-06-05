@@ -10,15 +10,17 @@ export default class CharacterScreen extends Component {
           isLoading: false
         }
       }
-      componentDidMount () {
-        this.setState({ isLoading: true })
-    
+      fetchData() {
         fetch('https://www.moogleapi.com/api/v1/characters')
           .then(response => response.json())
           .then(characters => {
             this.setState({ characters: characters, isLoading: false })
-          }
-          )
+          })
+      }
+      componentDidMount () {
+        this.setState({ isLoading: true })
+        this.fetchData();
+        this.props.navigation.setParams({ fetchData: this.fetchData })
       }
       render () {
         const isLoading = this.state.isLoading

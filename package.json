@@ -12,7 +12,9 @@
     "react-native-gesture-handler": "^1.2.1",
     "react-native-material-bottom-navigation": "^1.0.3",
     "react-native-vector-icons": "^6.4.2",
-    "react-navigation": "^3.11.0"
+    "react-navigation": "^3.11.0",
+    "react-navigation-addons": "github:satya164/react-navigation-addons",
+    "ws": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",

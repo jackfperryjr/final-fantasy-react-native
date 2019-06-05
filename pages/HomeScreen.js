@@ -10,15 +10,17 @@ export default class HomeScreen extends Component {
             isLoading: false,
         };
     }
+    fetchData() {
+        fetch("https://www.moogleapi.com/api/v1/characters/random")
+        .then(response => response.json())
+        .then(character => {
+            this.setState({ character: character, isLoading: false });
+        })
+    }
     componentDidMount() {
         this.setState({ isLoading: true });
-    
-        fetch("https://www.moogleapi.com/api/v1/characters/random")
-            .then(response => response.json())
-            .then(character => {
-                this.setState({ character: character, isLoading: false });
-            }
-        )
+        this.fetchData();
+        this.props.navigation.setParams({ fetchData: this.fetchData })
     }
     render() {
         const isLoading = this.state.isLoading;

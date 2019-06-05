@@ -10,15 +10,17 @@ export default class MonsterScreen extends Component {
           isLoading: false
         }
       }
-      componentDidMount () {
-        this.setState({ isLoading: true })
-    
+      fetchData () {
         fetch('https://www.moogleapi.com/api/v1/monsters')
           .then(response => response.json())
           .then(monsters => {
             this.setState({ monsters: monsters, isLoading: false })
-          }
-          )
+          })
+      }
+      componentDidMount () {
+        this.setState({ isLoading: true })
+        this.fetchData();
+        this.props.navigation.setParams({ fetchData: this.fetchData })
       }
       render () {
         const isLoading = this.state.isLoading

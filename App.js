@@ -16,6 +16,9 @@ const App = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
+      // tabBarOnPress: () => {
+      //   navigation.getParam('fetchData')();
+      // },
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
         let IconComponent = Ionicons;
