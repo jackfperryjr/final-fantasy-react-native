@@ -10,8 +10,8 @@ import GameScreen from './pages/GameScreen'
 const App = createBottomTabNavigator(
   {
     Home: { screen: HomeScreen },
-    Characters: { screen: CharacterScreen },
     Games: { screen: GameScreen },
+    Characters: { screen: CharacterScreen },
     Monsters: { screen: MonsterScreen }
   },
   {
