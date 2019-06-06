@@ -32,8 +32,29 @@ export default class GameScreen extends Component {
       </View>
     } else {
       render = <ScrollView contentContainerStyle={{ alignItems: 'center', paddingBottom: 100, width: width }}>
+        <View style={{ flexDirection: 'row', flex: 3, justifyContent: 'space-around', backgroundColor: '#343a40', width: width, paddingLeft: 10, paddingRight: 10 }}>
+          <View style={{ flexDirection: 'column', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: '#fff' }}>Title</Text>
+          </View>
+          <View style={{ flexDirection: 'column', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: '#fff' }}>Platform</Text>
+          </View>
+          <View style={{ flexDirection: 'column', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: '#fff' }}>Release Date</Text>
+          </View>
+        </View>
         {this.state.games.map((item, key) =>
-          <Text key={key}><Image style={{ width: 100, height: 40 }} source={{ uri: item.picture }} /> {item.title}</Text>
+          <View key={key} style={{ flexDirection: 'row', flex: 3, justifyContent: 'space-around', width: width, paddingLeft: 10, paddingRight: 10 }}>
+            <View style={{ flexDirection: 'column', flex: 1 }}>
+              <Image style={{ width: 100, height: 40, paddingBottom: 10 }} source={{ uri: item.picture }} />
+            </View>
+            <View style={{ flexDirection: 'column', flex: 1 }}>
+              <Text style={{ paddingTop: 5 }}>{item.platform}</Text>
+            </View>
+            <View style={{ flexDirection: 'column', flex: 1 }}>
+              <Text style={{ paddingTop: 5 }}>{item.releaseDate}</Text>
+            </View>
+          </View>
         )}
       </ScrollView>
     }

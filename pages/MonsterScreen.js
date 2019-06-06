@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Array, Image, ScrollView } from 'react-native'
+import { Text, View, Array, Image, ScrollView, Dimensions } from 'react-native'
 
 export default class MonsterScreen extends Component {
   constructor (props) {
@@ -24,6 +24,7 @@ export default class MonsterScreen extends Component {
   render () {
     const isLoading = this.state.isLoading
     let render
+    var width = Dimensions.get('window').width // full width
 
     if (isLoading) {
       render = <View isLoading={isLoading} style={{ alignContent: 'center', alignItems: 'center' }}>
@@ -31,8 +32,29 @@ export default class MonsterScreen extends Component {
       </View>
     } else {
       render = <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        <View style={{ flexDirection: 'row', flex: 3, justifyContent: 'space-around', backgroundColor: '#343a40', width: width, paddingLeft: 10, paddingRight: 10 }}>
+          <View style={{ flexDirection: 'column', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: '#fff' }}>Name</Text>
+          </View>
+          <View style={{ flexDirection: 'column', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: '#fff' }}>Strength</Text>
+          </View>
+          <View style={{ flexDirection: 'column', flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: '#fff' }}>Weakness</Text>
+          </View>
+        </View>
         {this.state.monsters.map((item, key) =>
-          <Text key={key} style={{ paddingBottom: 5 }}><Image source={require('./icon-moogle.png')} style={{ width: 50, height: 50 }} />{item.name}</Text>
+          <View key={key} style={{ flexDirection: 'row', flex: 3, justifyContent: 'space-around', width: width, paddingLeft: 10, paddingRight: 10 }}>
+            <View style={{ flexDirection: 'column', flex: 1 }}>
+              <Text key={key} style={{ paddingTop: 5 }}><Image source={require('./icon-moogle.png')} style={{ width: 30, height: 30 }} />{item.name}</Text>
+            </View>
+            <View style={{ flexDirection: 'column', flex: 1 }}>
+              <Text style={{ paddingTop: 20, textAlign: "center" }}>{item.strength}</Text>
+            </View>
+            <View style={{ flexDirection: 'column', flex: 1 }}>
+              <Text style={{ paddingTop: 20, textAlign: "center" }}>{item.weakness}</Text>
+            </View>
+          </View>
         )}
       </ScrollView>
     }
