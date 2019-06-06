@@ -38,10 +38,10 @@ export default class CharacterScreen extends Component {
           render =  <ScrollView contentContainerStyle={{ alignItems: "center", paddingBottom: 100 }}>
                       <View style={{ flexDirection: "row", flex: 2, justifyContent: "space-around", backgroundColor: "#343a40",  width: width, paddingLeft: 10, paddingRight: 10 }}>
                         <View style={{ flexDirection: "column", flex: 1, alignItems: "center" }}>
-                          <Text style={{ fontWeight: "bold" }}>Name</Text>
+                          <Text style={{ fontWeight: "bold", color: "#fff" }}>Name</Text>
                         </View>
                         <View style={{ flexDirection: "column", flex: 1, alignItems: "center" }}>
-                          <Text style={{ fontWeight: "bold" }}>Job/Class</Text>
+                          <Text style={{ fontWeight: "bold", color: "#fff" }}>Job/Class</Text>
                         </View>
                       </View>
                       {this.state.characters.map((item, key) =>

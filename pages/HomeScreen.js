@@ -52,7 +52,7 @@ export default class HomeScreen extends Component {
         return (
             <View style={{ alignContent: "center", marginTop: 50 }}>
                 <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center" }}>Welcome!</Text>
-                <Text style={{ textAlign: "center", marginTop: 20 }}>This is my simple little React.js web application.</Text>
+                <Text style={{ textAlign: "center", marginTop: 20 }}>This is my simple little React-Native web application.</Text>
                 <Text style={{ textAlign: "left", paddingLeft: 10, paddingRight: 10 }}>Shameless plug: I'm reaching out to https://www.moogleapi.com to pull in data from three different endpoints.</Text>
                 <View style={{ textAlign: "center", paddingLeft: 10, paddingRight: 10 }}>
                     <Text>Here's a fourth endpoint fetching a random character each time this page loads.</Text>
