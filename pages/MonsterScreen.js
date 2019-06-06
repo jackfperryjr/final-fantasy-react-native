@@ -30,9 +30,9 @@ export default class MonsterScreen extends Component {
         <Image source={require('./icon-spinner.gif')} style={{ width: 100, height: 100, alignContent: 'center' }} />
       </View>
     } else {
-      render = <ScrollView>
+      render = <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {this.state.monsters.map((item, key) =>
-          <Text key={key}>{item.name}</Text>
+          <Text key={key} style={{ paddingBottom: 5 }}><Image source={require('./icon-moogle.png')} style={{ width: 50, height: 50 }} />{item.name}</Text>
         )}
       </ScrollView>
     }
