@@ -15,14 +15,22 @@ export default class CharacterScreen extends Component {
           .then(response => response.json())
           .then(characters => {
             this.setState({ characters: characters, isLoading: false })
-          })
+          });
       }
-      componentDidMount () {
+      componentDidMount() {
         this.setState({ isLoading: true })
         this.fetchData();
-        this.props.navigation.setParams({ fetchData: this.fetchData })
+        this.subs = [
+          this.props.navigation.addListener('didFocus', this.componentDidFocus)
+        ];
       }
-      render () {
+      componentWillUnmount() {
+        this.subs.forEach(sub => sub.remove());
+      }
+      componentDidFocus() {
+        this.fetchData;
+      }
+      render() {
         const isLoading = this.state.isLoading
         let render
     

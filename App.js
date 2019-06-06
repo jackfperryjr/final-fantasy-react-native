@@ -23,8 +23,9 @@ const App = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let IconComponent = Ionicons;
         let iconName;
+        
         if (routeName === 'Home') {
-          iconName = `ios-home`;
+          iconName = `ios-home`
         } else if (routeName === 'Characters') {
           iconName = `ios-contacts`;
         } else if (routeName === 'Games') {
