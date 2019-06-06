@@ -20,7 +20,6 @@ export default class GameScreen extends Component {
       componentDidMount () {
         this.setState({ isLoading: true })
         this.fetchData();
-        this.props.navigation.setParams({ fetchData: this.fetchData })
       }
       render () {
         const isLoading = this.state.isLoading
@@ -33,7 +32,7 @@ export default class GameScreen extends Component {
         } else {
           render =  <ScrollView>
                         {this.state.games.map((item, key) =>
-                            <Text key={key}>{item.title}</Text>
+                            <Text key={key}><Image style={{ width: 30, height: 30 }} source={{ uri: item.picture }}></Image> {item.title}</Text>
                         )}
                     </ScrollView>
         }

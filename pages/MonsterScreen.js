@@ -20,7 +20,6 @@ export default class MonsterScreen extends Component {
       componentDidMount () {
         this.setState({ isLoading: true })
         this.fetchData();
-        this.props.navigation.setParams({ fetchData: this.fetchData })
       }
       render () {
         const isLoading = this.state.isLoading

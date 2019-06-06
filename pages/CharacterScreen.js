@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Text, View, Array, Image, ScrollView } from 'react-native';
+import { Text, View, Array, Image, ScrollView, Dimensions } from 'react-native';
  
 export default class CharacterScreen extends Component {
     constructor (props) {
@@ -17,43 +17,39 @@ export default class CharacterScreen extends Component {
             this.setState({ characters: characters, isLoading: false })
           });
       }
+      componentWillMount() {
+        this.setState({ isLoading: true })
+        this.fetchData();
+      }
       componentDidMount() {
         this.setState({ isLoading: true })
         this.fetchData();
-        this.subs = [
-          this.props.navigation.addListener('didFocus', this.componentDidFocus)
-        ];
-      }
-      componentWillUnmount() {
-        this.subs.forEach(sub => sub.remove());
-      }
-      componentDidFocus() {
-        this.fetchData;
       }
       render() {
         const isLoading = this.state.isLoading
         let render
+        var width = Dimensions.get("window").width; //full width
     
         if (isLoading) {
           render =  <View isLoading={isLoading} style={{ alignContent: "center", alignItems: "center" }}>
                         <Image source={require("./icon-spinner.gif")} style={{ width: 100, height:100, alignContent: "center"}}></Image>
                     </View>;
         } else {
-          render =  <ScrollView contentContainerStyle={{ alignContent: "center", alignItems: "center", justifyContent: "center" }}>
-                      <View style={{ flexDirection: "row", flex: 1 }}>
-                        <View style={{ flexDirection: "column", paddingRight: 5 }}>
+          render =  <ScrollView contentContainerStyle={{ alignItems: "center", paddingBottom: 100 }}>
+                      <View style={{ flexDirection: "row", flex: 2, justifyContent: "space-around", backgroundColor: "#343a40",  width: width, paddingLeft: 10, paddingRight: 10 }}>
+                        <View style={{ flexDirection: "column", flex: 1, alignItems: "center" }}>
                           <Text style={{ fontWeight: "bold" }}>Name</Text>
                         </View>
-                        <View style={{ flexDirection: "column", paddingLeft: 5 }}>
+                        <View style={{ flexDirection: "column", flex: 1, alignItems: "center" }}>
                           <Text style={{ fontWeight: "bold" }}>Job/Class</Text>
                         </View>
                       </View>
                       {this.state.characters.map((item, key) =>
-                      <View key={key} style={{ flexDirection: "row", flex: 1 }}>
-                        <View style={{ flexDirection: "column", paddingRight: 5 }}>
-                          <Text>{item.name}</Text>
+                      <View key={key} style={{ flexDirection: "row", flex: 2, justifyContent: "space-around", width: width, paddingLeft: 10, paddingRight: 10 }}>
+                        <View style={{ flexDirection: "column", flex: 1 }}>
+                          <Text><Image style={{ width: 20, height: 20 }} source={{ uri: item.picture }}></Image> {item.name}</Text>
                         </View>
-                        <View style={{ flexDirection: "column", paddingLeft: 5 }}>
+                        <View style={{ flexDirection: "column", flex: 1 }}>
                           <Text>{item.job}</Text>
                         </View>
                       </View>
