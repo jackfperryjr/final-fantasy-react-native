@@ -17,10 +17,6 @@ export default class HomeScreen extends Component {
         this.setState({ character: character, isLoading: false })
       })
   }
-  componentWillMount () {
-    this.setState({ isLoading: true })
-    this.fetchData()
-  }
   componentDidMount () {
     this.setState({ isLoading: true })
     this.fetchData()
