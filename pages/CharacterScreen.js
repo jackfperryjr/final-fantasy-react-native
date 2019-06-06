@@ -39,9 +39,24 @@ export default class CharacterScreen extends Component {
                         <Image source={require("./icon-spinner.gif")} style={{ width: 100, height:100, alignContent: "center"}}></Image>
                     </View>;
         } else {
-          render =  <ScrollView>
-                        {this.state.characters.map((item, key) =>
-                            <Text key={key}>{item.name} {item.job}</Text>
+          render =  <ScrollView contentContainerStyle={{ alignContent: "center", alignItems: "center", justifyContent: "center" }}>
+                      <View style={{ flexDirection: "row", flex: 1 }}>
+                        <View style={{ flexDirection: "column", paddingRight: 5 }}>
+                          <Text style={{ fontWeight: "bold" }}>Name</Text>
+                        </View>
+                        <View style={{ flexDirection: "column", paddingLeft: 5 }}>
+                          <Text style={{ fontWeight: "bold" }}>Job/Class</Text>
+                        </View>
+                      </View>
+                      {this.state.characters.map((item, key) =>
+                      <View key={key} style={{ flexDirection: "row", flex: 1 }}>
+                        <View style={{ flexDirection: "column", paddingRight: 5 }}>
+                          <Text>{item.name}</Text>
+                        </View>
+                        <View style={{ flexDirection: "column", paddingLeft: 5 }}>
+                          <Text>{item.job}</Text>
+                        </View>
+                      </View>
                         )}
                     </ScrollView>
         }
