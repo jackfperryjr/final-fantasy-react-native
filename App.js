@@ -34,12 +34,12 @@ const App = createBottomTabNavigator(
           iconName = `ios-bug`;
         }
 
-        return <IconComponent name={iconName} size={25} color={tintColor} />;
+        return <IconComponent name={iconName} size={30} color={tintColor} />;
       },
     }),
     tabBarOptions: {
-      activeTintColor: '#000',
-      inactiveTintColor: 'gray',
+      activeTintColor: '#dc3545',
+      inactiveTintColor: '#808080',
     },
   }
 );

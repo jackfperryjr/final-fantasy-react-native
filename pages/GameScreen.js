@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Text, View, Array, Image, ScrollView } from 'react-native';
+import { Text, View, Array, Image, ScrollView, Dimensions } from 'react-native';
  
 export default class GameScreen extends Component {
     constructor (props) {
@@ -24,15 +24,16 @@ export default class GameScreen extends Component {
       render () {
         const isLoading = this.state.isLoading
         let render
+        var width = Dimensions.get("window").width; //full width
     
         if (isLoading) {
           render =  <View isLoading={isLoading} style={{ alignContent: "center", alignItems: "center" }}>
                         <Image source={require("./icon-spinner.gif")} style={{ width: 100, height:100, alignContent: "center"}}></Image>
                     </View>;
         } else {
-          render =  <ScrollView>
+          render =  <ScrollView contentContainerStyle={{ alignItems: "center", paddingBottom: 100, width: width }}>
                         {this.state.games.map((item, key) =>
-                            <Text key={key}><Image style={{ width: 30, height: 30 }} source={{ uri: item.picture }}></Image> {item.title}</Text>
+                            <Text key={key}><Image style={{ width: 100, height: 40 }} source={{ uri: item.picture }}></Image> {item.title}</Text>
                         )}
                     </ScrollView>
         }

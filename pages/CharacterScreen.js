@@ -47,10 +47,10 @@ export default class CharacterScreen extends Component {
                       {this.state.characters.map((item, key) =>
                       <View key={key} style={{ flexDirection: "row", flex: 2, justifyContent: "space-around", width: width, paddingLeft: 10, paddingRight: 10 }}>
                         <View style={{ flexDirection: "column", flex: 1 }}>
-                          <Text><Image style={{ width: 20, height: 20 }} source={{ uri: item.picture }}></Image> {item.name}</Text>
+                          <Text style={{ paddingBottom: 5}}><Image style={{ width: 20, height: 20, paddingBottom: 5 }} source={{ uri: item.picture }}></Image> {item.name}</Text>
                         </View>
                         <View style={{ flexDirection: "column", flex: 1 }}>
-                          <Text>{item.job}</Text>
+                          <Text style={{ paddingTop: 5}}>{item.job}</Text>
                         </View>
                       </View>
                         )}
