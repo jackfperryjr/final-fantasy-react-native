@@ -46,7 +46,7 @@ export default class MonsterScreen extends Component {
         {this.state.monsters.map((item, key) =>
           <View key={key} style={{ flexDirection: 'row', flex: 3, justifyContent: 'space-around', width: width, paddingLeft: 10, paddingRight: 10 }}>
             <View style={{ flexDirection: 'column', flex: 1 }}>
-              <Text key={key} style={{ paddingTop: 5 }}><Image source={require('./icon-moogle.png')} style={{ width: 30, height: 30 }} />{item.name}</Text>
+              <Text key={key} style={{ paddingTop: 5 }}><Image source={{ uri: item.picture }} style={{ width: 30, height: 30 }} />{item.name}</Text>
             </View>
             <View style={{ flexDirection: 'column', flex: 1 }}>
               <Text style={{ paddingTop: 20, textAlign: "center" }}>{item.strength}</Text>
